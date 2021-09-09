@@ -5,8 +5,9 @@ version: "3.7"
 services:
   # 여기서 지어주는 서비스 이름이 자동적으로 network alias(해당 컨테이너의 host) 가 된다.
   app:
+    platform: linux/x86_64
     image: node:12-alpine 
-    command: sh -C "yarn install && yarn run dev"
+    command: sh -c "yarn install && yarn run dev"
     ports:
       - 3000:3000
     working_dir: /app 
@@ -18,6 +19,7 @@ services:
       MYSQL_PASSWORD: secret
       MYSQL_DB: todos
   mysql:
+    platform: linux/x86_64
     image: mysql:5.7
     volumes: 
       - todo-mysql-data:/var/lib/mysql 
