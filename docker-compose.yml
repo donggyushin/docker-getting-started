@@ -1,0 +1,31 @@
+# 버전은 가장 최신 버전을 사용해주는게 좋다. 
+# https://docs.docker.com/compose/compose-file/ <- 최신 버전 확인
+version: "3.7"
+
+services:
+  # 여기서 지어주는 서비스 이름이 자동적으로 network alias(해당 컨테이너의 host) 가 된다.
+  app:
+    image: node:12-alpine 
+    command: sh -C "yarn install && yarn run dev"
+    ports:
+      - 3000:3000
+    working_dir: /app 
+    volumes: 
+      - ./:/app 
+    environment: 
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos
+  mysql:
+    image: mysql:5.7
+    volumes: 
+      - todo-mysql-data:/var/lib/mysql 
+    environment: 
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todos
+  # docker run 명령어로 실행할때에는 존재하지 않는 volume 을 마운팅 시켜주면 자동으로 해당 볼륨을 만들어주었는데, 
+  # compose 에서는 그렇게 동작하지 않는다. 때문에 top-level 섹션에 해당 볼륨을 따로 생성해준다. 
+  volumes: 
+    todo-mysql-data:
+    

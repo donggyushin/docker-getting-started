@@ -3,6 +3,7 @@
 # node:12-alpine 이미지를 이용한다
 FROM node:12-alpine
 RUN apk add --no-cache python g++ make
+# 커맨드가 실행될 working directory를 설정해준다.
 WORKDIR /app
 
 # application을 복사한다
