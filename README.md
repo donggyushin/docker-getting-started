@@ -125,7 +125,6 @@ docker exec -it <mysql-container-id> mysql -p todos
 
 ```
 mysql> select * from todo_items;
-
 ```
 
 # Docker Compose 사용하기 
