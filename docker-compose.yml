@@ -26,6 +26,6 @@ services:
       MYSQL_DATABASE: todos
   # docker run 명령어로 실행할때에는 존재하지 않는 volume 을 마운팅 시켜주면 자동으로 해당 볼륨을 만들어주었는데, 
   # compose 에서는 그렇게 동작하지 않는다. 때문에 top-level 섹션에 해당 볼륨을 따로 생성해준다. 
-  volumes: 
-    todo-mysql-data:
+volumes: 
+  todo-mysql-data:
     
