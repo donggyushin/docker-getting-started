@@ -4,9 +4,9 @@ docker build -t getting-started .
 ```
 
 -t: 생성될 이미지에 태깅. 여기서는 getting-started 이라는 tag 값을 이미지에 붙여주었다. 
-나중에 컨테이너를 실행할 때 해당 태그를 참조해서 실행시킬 수 있음.\n
+나중에 컨테이너를 실행할 때 해당 태그를 참조해서 실행시킬 수 있음.
 
-. 는 현재 디렉토리에서 Dockerfile 을 찾으라는 의미\n
+. 는 현재 디렉토리에서 Dockerfile 을 찾으라는 의미
 
 # 앱 컨테이너 실행
 
@@ -15,6 +15,7 @@ docker run -dp 3000:3000 getting-started
 ```
 
 -d: 백그라운드에서 task 실행
+
 -p {port}:{port}: 호스트의 port 와 컨테이너의 port 맵핑
 
 # 오래된 컨테이너 제거
@@ -81,6 +82,7 @@ docker run -d \
 이런 경우에는 도커가 알아서 자동으로 todo-mysql-data 볼륨을 생성해주기 때문에 걱정할 것 없다.
 
 -e: 환경 변수
+
 --network-alias: 해당 컨테이너 host의 이름. 나중에 해당 컨테이너를 참조할 때 사용. (동일 네트워크 선상에 있을때에만 참조가 가능)
 
 3. 데이터베이스가 제대로 실행되어졌는지 확인하기 위해 데이터베이스에 직접 연결해보자.
@@ -113,6 +115,7 @@ docker run -dp 3000:3000 \
    sh -c "yarn install && yarn run dev"
 ```
 -w: 커맨드가 실행 될 working directory를 설정해준다. 
+
 -v: 여기서는 named volume이 아닌 bind mounts 를 사용해주어서 현재 경로의 모든 파일을 working directory에 복사해주고 있다. 
 
 데이터베이스에 직접 들어가서 데이터 조회해보는 방법
