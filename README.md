@@ -147,3 +147,7 @@ docker-compose down
 ```
 docker-compose down --volume
 ```
+
+## 이름없는 볼륨 삭제 
+
+[Docker remove all dangling volumes (Example)](https://coderwall.com/p/hdsfpq/docker-remove-all-dangling-volumes)
